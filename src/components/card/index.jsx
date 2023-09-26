@@ -5,8 +5,12 @@ export default function Card({ text, number }) {
   const { statCard } = styles;
   return (
     <View style={[statCard]}>
-      <Text style={{ fontSize: 40, fontFamily: "poppins" }}>{number}</Text>
-      <Text style={{ fontSize: 18, fontFamily: "poppins" }}>{text}</Text>
+      <Text style={{ fontSize: 40, fontFamily: "poppins", color: "#FFF" }}>
+        {number}
+      </Text>
+      <Text style={{ fontSize: 18, fontFamily: "poppins", color: "#FFF" }}>
+        {text}
+      </Text>
     </View>
   );
 }
@@ -19,8 +23,8 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: "#F6655F",
-    borderColor: "#F6655F",
+    color: "#FFF",
+    borderColor: "#FFF",
     borderWidth: 2,
   },
 });

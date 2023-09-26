@@ -127,8 +127,8 @@ const donorList = [
     id: 11,
     image:
       "https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png",
-    firstName: "John",
-    lastName: "Doe",
+    firstName: "Johnny",
+    lastName: "Doepp",
     state: "philly",
     city: "lagos",
     bloodType: "o+",
@@ -217,24 +217,29 @@ const donorList = [
 
 const Item = ({ image, firstName, lastName, state, city, bloodType }) => (
   <View style={styles.donorWrap}>
-    <Image
-      style={{ height: 100, width: 100, borderRadius: 50 }}
-      source={require("../../../assets/Avatar.png")}
-    />
-    <Text style={styles.donorName}>
-      {firstName} {lastName}
-    </Text>
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <View>
       <Image
-        style={{ marginRight: 5 }}
-        source={require("../../../assets/place.png")}
+        style={{ height: 100, width: 100 }}
+        source={require("../../../assets/Avatar2.png")}
       />
-      <Text style={styles.donorState}>{state}</Text>
     </View>
-    <Text style={styles.donorCity}>{city}</Text>
-    <View style={styles.donorBloodWrap}>
-      <Text style={styles.donorBlood}>{bloodType}</Text>
+
+    <View style={styles.donorInfoWrap}>
+      <View>
+        <Text style={styles.donorName}>
+          {firstName} {lastName}
+        </Text>
+
+        <Text style={styles.donorState}>{state}</Text>
+
+        <Text style={styles.donorCity}>{city}</Text>
+      </View>
+      <View>
+        <Text style={styles.donorBlood}>{bloodType}</Text>
+      </View>
     </View>
+
+    {/* style={styles.donorBloodWrap} */}
   </View>
 );
 
@@ -261,22 +266,24 @@ export default function NeedBlood() {
   }
   return (
     <SafeAreaView style={styles.main}>
-      <Text style={styles.searchText}>Find Donors</Text>
-      <View style={styles.searchWrap}>
-        <Feather name="search" size={24} color="black" />
-        <TextInput
-          style={styles.input}
-          clearButtonMode="always"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={searchValue}
-          onChangeText={setSearchValue}
-          placeholder="Search with State, City or Bloodtype"
-        />
+      <View style={{ backgroundColor: "#f6655F" }}>
+        <Text style={styles.searchText}>Find Donors</Text>
+        <View style={styles.searchWrap}>
+          <Feather name="search" size={24} color="black" />
+          <TextInput
+            style={styles.input}
+            clearButtonMode="always"
+            autoCapitalize="none"
+            autoCorrect={false}
+            value={searchValue}
+            onChangeText={setSearchValue}
+            placeholder="Search with State, City or Bloodtype"
+          />
+        </View>
       </View>
 
       <View style={styles.donorsWrap}>
-        <Text style={styles.donorTitle}>Available Donors</Text>
+        {/* <Text style={styles.donorTitle}>Available Donors</Text> */}
 
         <FlatList
           data={donorList}
@@ -316,21 +323,24 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     width: "95%",
-    backgroundColor: "#d9dbda",
-    borderRadius: 25,
+    backgroundColor: "white",
+    borderRadius: 30,
+    marginBottom: 50,
     height: 60,
   },
   searchText: {
-    color: "grey",
+    color: "white",
     paddingLeft: 10,
+    marginTop: 20,
     paddingRight: 10,
     fontSize: 22,
     textAlign: "center",
     fontFamily: "poppins",
   },
   donorsWrap: {
-    height: 560,
+    height: 610,
     backgroundColor: "#f1908c1a",
+    flex: 1,
     padding: 15,
   },
   donorWrap: {
@@ -338,10 +348,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginBottom: 16,
     padding: 12,
-    marginTop: 16,
+    // marginTop: 16,
     display: "flex",
-    justifyContent: "center",
+
     alignItems: "center",
+    flexDirection: "row",
   },
   donorTitle: {
     fontSize: 40,
@@ -349,22 +360,28 @@ const styles = StyleSheet.create({
     color: "#F6655F",
     fontFamily: "poppins",
   },
+  donorInfoWrap: {
+    display: "flex",
+    // width: 180,
+    marginLeft: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
   donorName: {
     fontFamily: "poppins",
     fontSize: 24,
-    marginTop: 17,
     color: "#434343",
   },
   donorState: {
     fontFamily: "poppinsReg",
     fontSize: 20,
-    color: "#434343",
+    color: "grey",
   },
   donorCity: {
     fontFamily: "poppinsReg",
     fontSize: 20,
-    color: "#506EDA",
-    marginBottom: 12,
+    color: "grey",
   },
   donorBloodWrap: {
     width: 120,
@@ -379,5 +396,6 @@ const styles = StyleSheet.create({
   donorBlood: {
     fontSize: 52,
     fontFamily: "poppins",
+    color: "#F6655F",
   },
 });

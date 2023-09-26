@@ -29,6 +29,7 @@ export default function ViewUserDetail({ title, value }) {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        margin: 10,
       }}
     >
       <Text style={{ fontFamily: "poppins", fontSize: 20, textAlign: "left" }}>

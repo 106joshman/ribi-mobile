@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import {
   FlatList,
   SafeAreaView,
-  StatusBar,
   StyleSheet,
+  StatusBar,
   Text,
   View,
 } from "react-native";
@@ -40,6 +40,24 @@ const newsFeed = [
     id: 4,
     title: "Story 5",
     author: "Author 5",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis quibusdam eos adipisci atque tempora ipsa rerum voluptas eligendi inventore, mollitia molestiae molestias praesentium doloribus, laborum natus quidem repellendus harum optio id, cupiditate commodi veritatis voluptates! Reiciendis itaque, laborum quibusdam consectetur ab totam, alias ex delectus quidem, tempore animi? Velit.",
+  },
+  {
+    id: 5,
+    title: "Story 6",
+    author: "Author 6",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis quibusdam eos adipisci atque tempora ipsa rerum voluptas eligendi inventore, mollitia molestiae molestias praesentium doloribus, laborum natus quidem repellendus harum optio id, cupiditate commodi veritatis voluptates! Reiciendis itaque, laborum quibusdam consectetur ab totam, alias ex delectus quidem, tempore animi? Velit.",
+  },
+  {
+    id: 6,
+    title: "Story 7",
+    author: "Author 7",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis quibusdam eos adipisci atque tempora ipsa rerum voluptas eligendi inventore, mollitia molestiae molestias praesentium doloribus, laborum natus quidem repellendus harum optio id, cupiditate commodi veritatis voluptates! Reiciendis itaque, laborum quibusdam consectetur ab totam, alias ex delectus quidem, tempore animi? Velit.",
+  },
+  {
+    id: 7,
+    title: "Story 8",
+    author: "Author 8",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis quibusdam eos adipisci atque tempora ipsa rerum voluptas eligendi inventore, mollitia molestiae molestias praesentium doloribus, laborum natus quidem repellendus harum optio id, cupiditate commodi veritatis voluptates! Reiciendis itaque, laborum quibusdam consectetur ab totam, alias ex delectus quidem, tempore animi? Velit.",
   },
 ];
@@ -92,12 +110,14 @@ export default function Home() {
   const { fontBold } = styles;
   return (
     <SafeAreaView style={styles.main}>
-      <Text style={[styles.welcomeText, fontBold]}>Welcome User,</Text>
+      <View style={{ backgroundColor: "#f6655F" }}>
+        <Text style={[styles.welcomeText, fontBold]}>Welcome John,</Text>
 
-      <View style={styles.statsWrap}>
-        <Card number={"3"} text={" Pending Request"} />
-        <Card number={"2"} text={"Accepted Request"} />
-        <Card number={"1"} text={" Cancelled Request"} />
+        <View style={styles.statsWrap}>
+          <Card number={"3"} text={"Pending Request"} />
+          <Card number={"2"} text={"Accepted Request"} />
+          <Card number={"1"} text={"Cancelled Request"} />
+        </View>
       </View>
 
       <View style={styles.newsFeed}>
@@ -128,7 +148,10 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 24,
+    marginTop: 20,
+    color: "white",
     padding: 10,
+    paddingTop: 0,
   },
   statsWrap: {
     padding: 10,
@@ -136,12 +159,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
+    paddingTop: 0,
     marginTop: 25,
     marginBottom: 25,
   },
   newsFeed: {
-    height: 430,
+    height: 500,
     padding: 10,
+    flex: 1,
     backgroundColor: "#f1908c1a",
   },
   newsFeedTitle: {

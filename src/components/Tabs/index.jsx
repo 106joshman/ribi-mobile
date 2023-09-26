@@ -1,14 +1,52 @@
 import React, { useState, useEffect } from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../../screens/Home";
 import NeedBlood from "../../screens/Needblood";
 import Profile from "../../screens/Profile";
-import { Foundation, Fontisto, FontAwesome5 } from "@expo/vector-icons";
-import ActionBarImage from "../../components/actionBarImage";
-import { Text } from "react-native";
+import {
+  Foundation,
+  Fontisto,
+  FontAwesome5,
+  AntDesign,
+  Feather,
+} from "@expo/vector-icons";
+// import ActionBarImage from "../../components/actionBarImage";
+import { Text, Image } from "react-native";
 import * as Font from "expo-font";
+import Pending from "../Pending";
+import Donated from "../Donated";
+import UserDetails from "../userDetails";
 
+const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const ProfileScreen = () => {
+  return (
+    <Stack.Navigator
+      initialRouteName="Profile"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen
+        screenOptions={{
+          headerTitleStyle: {
+            fontSize: 28,
+            color: "#FFF",
+            display: "none",
+            fontFamily: "poppinsReg",
+          },
+        }}
+        name="UserProfile"
+        component={Profile}
+      />
+      <Stack.Screen name="UserInfo" component={UserDetails} />
+      <Stack.Screen name="Pending" component={Pending} />
+      <Stack.Screen name="Donated" component={Donated} />
+    </Stack.Navigator>
+  );
+};
 
 export default function Tabs() {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -30,19 +68,20 @@ export default function Tabs() {
   if (!fontLoaded) {
     return <Text>Loading...</Text>;
   }
-
+  // #AD9FA3, #606061
   return (
     <Tab.Navigator
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: "#FFF",
-        tabBarInactiveTintColor: "grey",
+        tabBarInactiveTintColor: "black",
         headerStyle: {
           height: 95,
-          backgroundColor: "#FFF",
+          backgroundColor: "#F6655F",
         },
         tabBarStyle: {
           backgroundColor: "#F6655F",
-          height: 55,
+          height: 60,
         },
         tabBarLabelStyle: {
           fontSize: 18,
@@ -50,12 +89,20 @@ export default function Tabs() {
         },
         headerTitleStyle: {
           fontSize: 28,
-          color: "#F6655F",
+          color: "#FFF",
+          // display: "none",
           fontFamily: "poppinsReg",
         },
         headerTitleAlign: "center",
         headerStatusBarHeight: 35,
-        headerLeft: () => <ActionBarImage />,
+        // headerLeft: () => <ActionBarImage />,
+        headerTintColor: "black",
+        // headerRight: () => (
+        //   <Image
+        //     style={{ height: 50, width: 50, borderRadius: 50, margin: 10 }}
+        //     source={require("../../../assets/Avatar2.png")}
+        //   />
+        // ),
       }}
     >
       <Tab.Screen
@@ -64,10 +111,10 @@ export default function Tabs() {
         options={{
           tabBarAccessibilityLabel: "Home",
           tabBarIcon: ({ focused }) => (
-            <Foundation
+            <Feather
               name="home"
               size={32}
-              color={focused ? "#FFF" : "grey"}
+              color={focused ? "white" : "black"}
             />
           ),
         }}
@@ -81,7 +128,7 @@ export default function Tabs() {
             <Fontisto
               name="blood-drop"
               size={32}
-              color={focused ? "#FFF" : "grey"}
+              color={focused ? "white" : "black"}
             />
           ),
           tabBarAccessibilityLabel: "Need Blood",
@@ -90,13 +137,13 @@ export default function Tabs() {
 
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <FontAwesome5
               name="user-alt"
               size={32}
-              color={focused ? "#FFF" : "grey"}
+              color={focused ? "white" : "black"}
             />
           ),
           tabBarAccessibilityLabel: "Profile",
@@ -105,3 +152,4 @@ export default function Tabs() {
     </Tab.Navigator>
   );
 }
+//
