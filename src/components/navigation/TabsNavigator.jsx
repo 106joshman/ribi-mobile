@@ -4,15 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../../screens/Home";
 import NeedBlood from "../../screens/Needblood";
 import Profile from "../../screens/Profile";
-import {
-  Foundation,
-  Fontisto,
-  FontAwesome5,
-  AntDesign,
-  Feather,
-} from "@expo/vector-icons";
-// import ActionBarImage from "../../components/actionBarImage";
-import { Text, Image } from "react-native";
+import { Fontisto, FontAwesome5, Feather } from "@expo/vector-icons";
+import { Text } from "react-native";
 import * as Font from "expo-font";
 import Pending from "../Pending";
 import Donated from "../Donated";
@@ -95,14 +88,7 @@ export default function Tabs() {
         },
         headerTitleAlign: "center",
         headerStatusBarHeight: 35,
-        // headerLeft: () => <ActionBarImage />,
         headerTintColor: "black",
-        // headerRight: () => (
-        //   <Image
-        //     style={{ height: 50, width: 50, borderRadius: 50, margin: 10 }}
-        //     source={require("../../../assets/Avatar2.png")}
-        //   />
-        // ),
       }}
     >
       <Tab.Screen

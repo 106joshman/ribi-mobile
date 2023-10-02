@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, View } from "react-native";
 
-export default function ActionBarImage() {
+export default function Logo() {
   return (
     <View>
       <Image
-        width={100}
-        height={100}
+        width={200}
+        height={200}
         source={require("../../../assets/logo.png")}
       />
     </View>

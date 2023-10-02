@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
 export default function ForgotPAssword() {
   return (
@@ -10,3 +10,9 @@ export default function ForgotPAssword() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+  },
+});

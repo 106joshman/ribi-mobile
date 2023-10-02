@@ -1,8 +1,28 @@
-import React from "react";
-import {  Text, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import * as Font from "expo-font";
 
-export default function Button({ title, name, color, onPress }) {
+export function Button({ title, name, color, onPress }) {
+  const [fontLoaded, setFontLoaded] = useState(false);
+  useEffect(() => {
+    async function loadFont() {
+      await Font.loadAsync({
+        poppins: require("../../../assets/fonts/Poppins-Bold.ttf"),
+        poppinsReg: require("../../../assets/fonts/Poppins-Regular.ttf"),
+        poppinsLight: require("../../../assets/fonts/Poppins-Light.ttf"),
+      });
+
+      setFontLoaded(true);
+    }
+
+    loadFont();
+  }, []);
+
+  if (!fontLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <View>
       <AntDesign.Button
@@ -27,5 +47,32 @@ export default function Button({ title, name, color, onPress }) {
         </Text>
       </AntDesign.Button>
     </View>
+  );
+}
+
+export function AuthButton({ title, onPress }) {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={{
+        borderRadius: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 20,
+        backgroundColor: "#F6655F",
+        marginTop: 20,
+      }}
+    >
+      <Text
+        style={{
+          color: "#FFF",
+          textTransform: "uppercase",
+          fontSize: 24,
+          fontFamily: "poppins",
+        }}
+      >
+        {title}
+      </Text>
+    </Pressable>
   );
 }

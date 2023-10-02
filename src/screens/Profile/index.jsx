@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,11 +7,8 @@ import {
   Image,
   View,
   ScrollView,
-  Modal,
-  Pressable,
 } from "react-native";
-import moment from "moment";
-import Button from "../../components/button";
+import { Button } from "../../components/button";
 
 export default function Profile({ navigation }) {
   return (
@@ -89,7 +86,13 @@ export default function Profile({ navigation }) {
             color="red"
             title={"Donated"}
           />
-          <Button name="swap" color={"black"} title={"Change Password"} />
+
+          <Button
+            onPress={() => navigation.navigate("Login")}
+            name="swap"
+            color={"black"}
+            title={"Change Password"}
+          />
           <Button name="logout" color="red" title={"Logout"} />
         </View>
       </ScrollView>

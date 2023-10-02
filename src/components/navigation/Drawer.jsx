@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import * as Font from "expo-font";
-import { Image, Text } from "react-native";
+import { Text } from "react-native";
 
-import Tabs from "../Tabs";
+import Tabs from "./TabsNavigator";
 
 import About from "../../screens/About";
 import Contact from "../../screens/Contact";
 import Home from "../../screens/Home";
-import ActionBarImage from "../actionBarImage";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();

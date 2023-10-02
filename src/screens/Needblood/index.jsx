@@ -238,8 +238,6 @@ const Item = ({ image, firstName, lastName, state, city, bloodType }) => (
         <Text style={styles.donorBlood}>{bloodType}</Text>
       </View>
     </View>
-
-    {/* style={styles.donorBloodWrap} */}
   </View>
 );
 
