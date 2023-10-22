@@ -7,7 +7,6 @@ import {
   StatusBar,
   ScrollView,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
 import moment from "moment";
 
 const requestList = [
@@ -57,33 +56,9 @@ const DateText = ({ text }) => {
     </Text>
   );
 };
-
-export default function Donated({ navigation }) {
+export default function Pending() {
   return (
     <SafeAreaView style={styles.main}>
-      <View>
-        <Entypo.Button
-          name="chevron-left"
-          size={24}
-          borderRadius={0}
-          backgroundColor="#FFF"
-          title="User Info"
-          color="black"
-          onPress={() => navigation.navigate("UserProfile")}
-        >
-          <Text
-            style={{
-              display: "flex",
-              alignItems: "center",
-              fontFamily: "poppinsReg",
-              fontSize: 24,
-            }}
-          >
-            Donated
-          </Text>
-        </Entypo.Button>
-      </View>
-
       <ScrollView style={{ padding: 10 }}>
         {requestList.map((item) => (
           <View
@@ -134,5 +109,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     backgroundColor: "white",
+  },
+  requestDate: {
+    fontFamily: "poppins",
+    fontSize: 20,
+    textAlign: "center",
   },
 });

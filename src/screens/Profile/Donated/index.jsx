@@ -57,32 +57,10 @@ const DateText = ({ text }) => {
     </Text>
   );
 };
-export default function Pending({ navigation }) {
+
+export default function Donated() {
   return (
     <SafeAreaView style={styles.main}>
-      <View>
-        <Entypo.Button
-          name="chevron-left"
-          size={24}
-          borderRadius={0}
-          backgroundColor="#FFF"
-          title="User Info"
-          color="black"
-          onPress={() => navigation.navigate("UserProfile")}
-        >
-          <Text
-            style={{
-              display: "flex",
-              alignItems: "center",
-              fontFamily: "poppinsReg",
-              fontSize: 24,
-            }}
-          >
-            Pending requests
-          </Text>
-        </Entypo.Button>
-      </View>
-
       <ScrollView style={{ padding: 10 }}>
         {requestList.map((item) => (
           <View
@@ -133,10 +111,5 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     backgroundColor: "white",
-  },
-  requestDate: {
-    fontFamily: "poppins",
-    fontSize: 20,
-    textAlign: "center",
   },
 });

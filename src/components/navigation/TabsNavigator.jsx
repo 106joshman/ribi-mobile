@@ -4,39 +4,102 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../../screens/Home";
 import NeedBlood from "../../screens/Needblood";
 import Profile from "../../screens/Profile";
-import { Fontisto, FontAwesome5, Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { Text } from "react-native";
 import * as Font from "expo-font";
-import Pending from "../Pending";
-import Donated from "../Donated";
-import UserDetails from "../userDetails";
+import Pending from "../../screens/Profile/Pending";
+import Donated from "../../screens/Profile/Donated";
+import UserDetails from "../../screens/Profile/userDetails";
+import ArticlePage from "../../screens/Home/articlePage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const ProfileScreen = () => {
+const HomeScreen = () => {
   return (
-    <Stack.Navigator
-      initialRouteName="Profile"
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
-        screenOptions={{
+        options={{ headerShown: false }}
+        name="Home page"
+        component={Home}
+      />
+      <Stack.Screen
+        options={({ route }) => ({
+          // title: route.params?.title,
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "#F6655F",
+          },
           headerTitleStyle: {
-            fontSize: 28,
             color: "#FFF",
-            display: "none",
+            fontSize: 25,
             fontFamily: "poppinsReg",
           },
-        }}
-        name="UserProfile"
+        })}
+        name="Activities"
+        component={ArticlePage}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const ProfileScreen = () => {
+  return (
+    <Stack.Navigator initialRouteName="User-Profile">
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="User"
         component={Profile}
       />
-      <Stack.Screen name="UserInfo" component={UserDetails} />
-      <Stack.Screen name="Pending" component={Pending} />
-      <Stack.Screen name="Donated" component={Donated} />
+      <Stack.Screen
+        options={({ route }) => ({
+          title: route.params?.title,
+          headerTitleAlign: "center",
+
+          headerStyle: {
+            backgroundColor: "#F6655F",
+          },
+          headerTitleStyle: {
+            color: "#FFF",
+            fontSize: 25,
+            fontFamily: "poppinsReg",
+          },
+        })}
+        name="User Info"
+        component={UserDetails}
+      />
+      <Stack.Screen
+        options={({ route }) => ({
+          title: route.params?.title,
+          headerTitleAlign: "center",
+          headerTintColor: "#FFF",
+          headerStyle: {
+            backgroundColor: "#F6655F",
+          },
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: "poppinsReg",
+          },
+        })}
+        name="Pending"
+        component={Pending}
+      />
+      <Stack.Screen
+        options={({ route }) => ({
+          title: route.params?.title,
+          headerTitleAlign: "center",
+          headerTintColor: "#FFF",
+          headerStyle: {
+            backgroundColor: "#F6655F",
+          },
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: "poppinsReg",
+          },
+        })}
+        name="Donated"
+        component={Donated}
+      />
     </Stack.Navigator>
   );
 };
@@ -69,7 +132,7 @@ export default function Tabs() {
         tabBarActiveTintColor: "#FFF",
         tabBarInactiveTintColor: "black",
         headerStyle: {
-          height: 95,
+          height: 10,
           backgroundColor: "#F6655F",
         },
         tabBarStyle: {
@@ -83,7 +146,7 @@ export default function Tabs() {
         headerTitleStyle: {
           fontSize: 28,
           color: "#FFF",
-          // display: "none",
+          display: "none",
           fontFamily: "poppinsReg",
         },
         headerTitleAlign: "center",
@@ -93,7 +156,7 @@ export default function Tabs() {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeScreen}
         options={{
           tabBarAccessibilityLabel: "Home",
           tabBarIcon: ({ focused }) => (
@@ -111,8 +174,8 @@ export default function Tabs() {
         component={NeedBlood}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Fontisto
-              name="blood-drop"
+            <Feather
+              name="droplet"
               size={32}
               color={focused ? "white" : "black"}
             />
@@ -126,8 +189,8 @@ export default function Tabs() {
         component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <FontAwesome5
-              name="user-alt"
+            <Feather
+              name="user"
               size={32}
               color={focused ? "white" : "black"}
             />

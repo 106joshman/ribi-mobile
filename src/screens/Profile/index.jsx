@@ -68,7 +68,7 @@ export default function Profile({ navigation }) {
 
         <View>
           <Button
-            onPress={() => navigation.navigate("UserInfo")}
+            onPress={() => navigation.navigate("User Info")}
             name="infocirlceo"
             color="blue"
             title={"Details"}
@@ -103,7 +103,7 @@ export default function Profile({ navigation }) {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    // marginTop: StatusBar.currentHeight || 0,
   },
 
   requestTitleGreen: {

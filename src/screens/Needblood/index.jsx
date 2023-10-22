@@ -305,7 +305,7 @@ export default function NeedBlood() {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    // marginTop: StatusBar.currentHeight || 0,
   },
   input: {
     width: "90%",
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
   searchText: {
     color: "white",
     paddingLeft: 10,
-    marginTop: 20,
+    marginTop: 25,
     paddingRight: 10,
     fontSize: 22,
     textAlign: "center",

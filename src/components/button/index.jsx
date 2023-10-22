@@ -50,18 +50,22 @@ export function Button({ title, name, color, onPress }) {
   );
 }
 
-export function AuthButton({ title, onPress }) {
+export function AuthButton({ title, onPress, disabled, disabledStyle }) {
   return (
     <Pressable
       onPress={onPress}
-      style={{
-        borderRadius: 10,
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 20,
-        backgroundColor: "#F6655F",
-        marginTop: 20,
-      }}
+      disabled={disabled}
+      style={[
+        {
+          borderRadius: 10,
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 15,
+          backgroundColor: "#F6655F",
+          marginTop: 20,
+        },
+        disabledStyle,
+      ]}
     >
       <Text
         style={{
@@ -75,4 +79,29 @@ export function AuthButton({ title, onPress }) {
       </Text>
     </Pressable>
   );
+}
+
+{
+  /* <View>
+        <Entypo.Button
+          name="chevron-left"
+          size={24}
+          borderRadius={0}
+          backgroundColor="#FFF"
+          title="User Info"
+          color="black"
+          onPress={() => navigation.navigate("Profile")}
+        >
+          <Text
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontFamily: "poppinsReg",
+              fontSize: 24,
+            }}
+          >
+            Pending requests
+          </Text>
+        </Entypo.Button>
+          </View> */
 }
